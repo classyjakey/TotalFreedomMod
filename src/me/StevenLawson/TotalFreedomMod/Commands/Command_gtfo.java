@@ -45,7 +45,7 @@ public class Command_gtfo extends TFM_Command
         TFM_Util.bcastMsg(p.getName() + " has been a VERY naughty, naughty boy.", ChatColor.RED);
 
         // Undo WorldEdits:
-        TFM_WorldEditBridge.getInstance().undo(p, 15);
+        TFM_WorldEditBridge.getInstance().undo(p, 25);
 
         // rollback
         TFM_RollbackManager.rollback(p);
