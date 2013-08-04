@@ -8,7 +8,7 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(Level = AdminLevel.SUPER, source = SourceType.PlayerOnly
+@CommandPermissions(Level = AdminLevel.SUPER, source = SourceType.PlayerOnly)
 @CommandParameters(description = "Shoot people with a non-existant bow!", usage = "/<command> [playername]")
 public class Command_shoot extends TFM_Command
 {
@@ -49,4 +49,3 @@ public class Command_shoot extends TFM_Command
                 final Location strike_pos = new Location(world, target_pos.getBlockX() + x, target_pos.getBlockY(), target_pos.getBlockZ() + z);
                 player.ShootArrow(strike_pos);
             }
-        }
