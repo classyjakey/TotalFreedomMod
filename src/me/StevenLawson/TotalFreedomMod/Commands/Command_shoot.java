@@ -8,44 +8,45 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-@CommandPermissions(Level = AdminLevel.SUPER, source = SourceType.PlayerOnly)
-@CommandParameters(description = "Shoot people with a non-existant bow!", usage = "/<command> [playername]")
+@commandpermissions(Level = AdminLevel.SUPER, source = SourceType.PlayerOnly)
+@commandparameters(description = "Shoot people with a non-existant bow!", usage = "/<command> [playername]")
 public class Command_shoot extends TFM_Command
 {
-    @Override
-     public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args)
-     { 
-        if (args.length != 1)
-       {
-            return false;
-        }
+@override
+public boolean run(CommandSender sender, Player sender_p, Command cmd, String commandLabel, String[] args)
+{ 
+if (args.length != 1)
+{
+return false;
+}
 
-        Player p;
-        try
-        {
-            p = getPlayer(args[0]);
-        }
-        catch (CantFindPlayerException ex)
-        {
-            playerMsg(ex.getMessage(), ChatColor.RED);
-            return true;
-        }
+Player p;
+try
+{
+p = getPlayer(args[0]);
+}
+catch (CantFindPlayerException ex)
+{
+playerMsg(ex.getMessage(), ChatColor.RED);
+return true;
+}
 
-        shoot(p);
+shoot(p);
 
-        return true;
-    }
+return true;
+}
 
-    public static void shoot(final Player p)
-    {
-        TFM_Util.playerMsg(p.getName() + " has been shot!",ChatColor.RED);
-        //Shooting Arrow
-        final Location target_pos = p.getLocation();
-        final World world = p.getWorld();
-        for (int x = -1; x <= 1; x++)
-        {
-            for (int z = -1; z <= 1; z++)
-            {
-                final Location strike_pos = new Location(world, target_pos.getBlockX() + x, target_pos.getBlockY(), target_pos.getBlockZ() + z);
-                player.ShootArrow(strike_pos);
-            }
+public static void shoot(final Player p)
+{
+TFM_Util.playerMsg(p.getName() + " has been shot!",ChatColor.RED);
+//Shooting Arrow
+final Location target_pos = p.getLocation();
+final World world = p.getWorld();
+for (int x = -1; x <= 1; x++)
+{
+for (int z = -1; z <= 1; z++)
+{
+final Location strike_pos = new Location(world, target_pos.getBlockX() + x, target_pos.getBlockY(), target_pos.getBlockZ() + z);
+player.ShootArrow(strike_pos);
+}
+}
