@@ -71,6 +71,8 @@ blocked_commands:
   - s:a:/save-all:_
   - s:a:/save-on:_
   - s:a:/save-off:_
+  - s:a:/setspawn:_
+
 
 # Automatically wipe dropped objects:
 auto_wipe: true
